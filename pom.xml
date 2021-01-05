@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.to8to</groupId>
+    <artifactId>t8t-bi-presto-udf</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.report.outputEncoding>UTF-8</project.report.outputEncoding>
+        <project.report.inputEncoding>UTF-8</project.report.inputEncoding>
+
+        <guava.version>20.0</guava.version>
+        <joda.version>2.8.2</joda.version>
+        <airlift.version>0.139</airlift.version>
+        <pinyin4j.version>2.5.0</pinyin4j.version>
+        <commons-codec.version>1.10</commons-codec.version>
+        <junit.version>4.12</junit.version>
+        <org.slf4j.version>1.7.12</org.slf4j.version>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+
+            <groupId>io.prestosql</groupId>
+
+            <artifactId>presto-spi</artifactId>
+
+            <version>347</version>
+
+            <scope>provided</scope>
+
+        </dependency>
+
+        <dependency>
+
+            <groupId>io.prestosql</groupId>
+
+            <artifactId>presto-main</artifactId>
+
+            <version>347</version>
+
+        </dependency>
+
+        <dependency>
+
+            <groupId>com.google.guava</groupId>
+
+            <artifactId>guava</artifactId>
+
+            <version>${guava.version}</version>
+
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.4.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <artifactSet>
+                                <excludes>
+                                    <exclude></exclude>
+                                </excludes>
+                            </artifactSet>
+                            <shadedArtifactAttached>true</shadedArtifactAttached>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Tweak the compiler to use more memory and use UTF-8 for the source code. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
+
+            <!-- Resource plugins should always use UTF-8 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
