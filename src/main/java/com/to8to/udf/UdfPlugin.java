@@ -12,6 +12,7 @@ public class UdfPlugin implements Plugin {
                 .add(GetDay.class)
                 .add(WeekBegin.class)
                 .add(MonthBegin.class)
+                .add(WeekBegin2.class)
                 .build();
     }
 }
