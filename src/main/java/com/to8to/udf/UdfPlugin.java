@@ -10,6 +10,8 @@ public class UdfPlugin implements Plugin {
     public Set<Class<?>> getFunctions() {
         return ImmutableSet.<Class<?>>builder()
                 .add(GetDay.class)
+                .add(WeekBegin.class)
+                .add(MonthBegin.class)
                 .build();
     }
 }
