@@ -25,7 +25,7 @@ public final class WeekBegin {
     @Description 是函数的描述
     输入的参数的是Long型的数字
      */
-    @ScalarFunction("week2_begin")
+    @ScalarFunction("week_begin")
     @SqlType(StandardTypes.VARCHAR)
     @Description("返回日期当周的第一天（周日）的日期 input:yyyyMMdd")
     public static Slice timestampToDay(@SqlNullable @SqlType(StandardTypes.BIGINT) Long time) {
@@ -52,7 +52,7 @@ public final class WeekBegin {
     /*
     输入的参数是 VARCHAR参数，参数的类型是Slice，VARCHAR使用Slice，本质上是的包装byte[]，而不是String其本机容器类型
      */
-    @ScalarFunction("week2_begin")
+    @ScalarFunction("week_begin")
     @SqlType(StandardTypes.VARCHAR)
     @Description("返回日期当周的第一天（周日）的日期 input:yyyyMMdd或者yyyy-MM-dd")
     public static Slice timestampToDay(@SqlNullable @SqlType(StandardTypes.VARCHAR) Slice times) {
@@ -120,11 +120,12 @@ public final class WeekBegin {
     }
 
     public static void main(String[] args) {
-        if (args.length==2){
-            System.out.println(WeekBegin.timestampToDay(Slices.utf8Slice(args[0].toString()), Integer.parseInt(args[1].toString())).toStringUtf8());
-        }else {
-            System.out.println(WeekBegin.timestampToDay(Slices.utf8Slice(args[0].toString())).toStringUtf8());
-        }
+//        if (args.length==2){
+//            System.out.println(WeekBegin.timestampToDay(Slices.utf8Slice(args[0].toString()), Integer.parseInt(args[1].toString())).toStringUtf8());
+//        }else {
+//            System.out.println(WeekBegin.timestampToDay(Slices.utf8Slice(args[0].toString())).toStringUtf8());
+//        }
+
         // System.out.println(WeekBegin.timestampToDay(20201109L).toStringUtf8());
         // System.out.println(WeekBegin.timestampToDay(Long.parseLong(args[0])).toStringUtf8());
 

@@ -89,7 +89,7 @@ public final class WeekBegin2 {
 
     public static void main(String[] args) {
 
-        System.out.println(WeekBegin2.timestampToDay(Slices.utf8Slice(args[0].toString())).toStringUtf8());
+//        System.out.println(WeekBegin2.timestampToDay(Slices.utf8Slice(args[0].toString())).toStringUtf8());
 
         // System.out.println(WeekBegin2.timestampToDay(Long.parseLong(args[0])).toStringUtf8());
 
