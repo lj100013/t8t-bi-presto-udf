@@ -13,6 +13,7 @@ public class UdfPlugin implements Plugin {
                 .add(WeekBegin.class)
                 .add(MonthBegin.class)
                 .add(WeekBegin2.class)
+                .add(GetJsonValue.class)
                 .build();
     }
 }
